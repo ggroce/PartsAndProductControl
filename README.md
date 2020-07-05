@@ -3,7 +3,7 @@ A part and product inventory control system for Windows using JavaFX.  Project w
 <br>
 <br>
 
-<img src="https://user-images.githubusercontent.com/25714007/86537082-21dfe980-beb2-11ea-931b-a74dfa0f5edf.png" width="300">
+<img src="https://user-images.githubusercontent.com/25714007/86537082-21dfe980-beb2-11ea-931b-a74dfa0f5edf.png" width="500">
 <br>
 
 ![image](https://user-images.githubusercontent.com/25714007/86537082-21dfe980-beb2-11ea-931b-a74dfa0f5edf.png)
