@@ -9,14 +9,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Main extends Application{
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws IOException {
         Inventory inventory = new Inventory();
         injectTestData(inventory);                  //Setup test data for display
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View_Controller/MainScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass()
+                .getResource("/PartsAndProductControl/Inventory/View_Controller/MainScreen.fxml"));
         Parent root = loader.load();
         MainController mainController = loader.getController();     //Get reference in order to make call and pass data
         mainController.initializeData(inventory);
@@ -26,9 +31,32 @@ public class Main extends Application{
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(final String[] taArgs)
+    {
+        try
+        {
+            Main.launch(taArgs);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            try
+            {
+                PrintWriter pw = new PrintWriter(new File("somefilename.txt"));
+                e.printStackTrace(pw);
+                pw.close();
+            }
+            catch (IOException e1)
+            {
+                e1.printStackTrace();
+            }
+        }
     }
+
+
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
 
     public void injectTestData(Inventory inventory) {
         Part test01 = new InHouse(1, "Coupler", 2.22, 3, 1, 5, 44);
