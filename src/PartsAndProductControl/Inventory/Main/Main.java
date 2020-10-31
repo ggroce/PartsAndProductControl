@@ -31,32 +31,9 @@ public class Main extends Application{
         primaryStage.show();
     }
 
-    public static void main(final String[] taArgs)
-    {
-        try
-        {
-            Main.launch(taArgs);
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-            try
-            {
-                PrintWriter pw = new PrintWriter(new File("somefilename.txt"));
-                e.printStackTrace(pw);
-                pw.close();
-            }
-            catch (IOException e1)
-            {
-                e1.printStackTrace();
-            }
-        }
+    public static void main(String[] args) {
+        launch(args);
     }
-
-
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
 
     public void injectTestData(Inventory inventory) {
         Part test01 = new InHouse(1, "Coupler", 2.22, 3, 1, 5, 44);
